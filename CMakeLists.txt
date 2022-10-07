@@ -100,6 +100,12 @@ boost_test_add_included_library(included_prg_exec_monitor)
 boost_test_add_included_library(included_test_exec_monitor)
 boost_test_add_included_library(included_unit_test_framework)
 
+# Testing
+
+if(BUILD_TESTING AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test/CMakeLists.txt")
+  add_subdirectory(test)
+endif()
+
 # Installation
 
 if(BOOST_SUPERPROJECT_VERSION AND NOT CMAKE_VERSION VERSION_LESS 3.13)
